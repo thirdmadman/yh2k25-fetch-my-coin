@@ -5,13 +5,13 @@ import { YouHodlerApiClient } from './services/YouHodlerApiClient';
 import { IGetRatesResponse, TCoinRates } from './types/IGetRatesResponse';
 
 const getRate = (coinRates: TCoinRates) => {
-  const { eurs } = coinRates;
+  const { usd } = coinRates;
 
-  if (!eurs) {
+  if (!usd) {
     return 0;
   }
 
-  return eurs.rate;
+  return usd.rate;
 };
 
 function App() {
