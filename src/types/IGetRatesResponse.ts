@@ -5,6 +5,6 @@ export interface ICoinRateObject {
   diff24h: number;
 }
 
-export type TCoinRates = Record<string, ICoinRateObject>;
+export type TCoinRates = Partial<Record<string, ICoinRateObject>>;
 
-export type IGetRatesResponse = Record<string, TCoinRates>;
+export type IGetRatesResponse = Partial<Record<string, TCoinRates | undefined>>;
