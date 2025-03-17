@@ -3,14 +3,19 @@ import { getTickerName } from '@/shared/utils/getTickerName';
 import { IGetRatesResponse, TCoinRates } from '@/types/IGetRatesResponse';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
 
-const getRate = (coinRates: TCoinRates) => {
-  const { usd } = coinRates;
+const getRatesRelativeTo = (coinRates: TCoinRates, coinRelativeTo = 'usd') => {
+  const relativeRates = coinRates[coinRelativeTo];
 
-  if (!usd) {
-    return 0;
+  if (!relativeRates) {
+    return {
+      rate: 0,
+      ask: 0,
+      bid: 0,
+      diff24h: 0,
+    };
   }
 
-  return usd.rate;
+  return relativeRates;
 };
 
 interface ICoinsListProps {
@@ -27,8 +32,12 @@ export function CoinsList({ rates }: ICoinsListProps) {
       <TableHeader>
         <TableColumn>Icon</TableColumn>
         <TableColumn>Coin</TableColumn>
-        <TableColumn>Rate in USD</TableColumn>
         <TableColumn>Name</TableColumn>
+        <TableColumn>Rate in USD</TableColumn>
+        <TableColumn>Ask in USD</TableColumn>
+        <TableColumn>Bid in USD</TableColumn>
+        <TableColumn>Difference in 24H</TableColumn>
+
       </TableHeader>
       <TableBody>
         {Object.entries(rates).map(([coin, ratesObject]) => (
@@ -37,8 +46,11 @@ export function CoinsList({ rates }: ICoinsListProps) {
               <img width={32} height={32} src={getTickerIcon(coin)} alt={coin} />
             </TableCell>
             <TableCell>{coin}</TableCell>
-            <TableCell>{ratesObject && getRate(ratesObject)}</TableCell>
             <TableCell>{ratesObject && getTickerName(coin)}</TableCell>
+            <TableCell>{ratesObject && getRatesRelativeTo(ratesObject).rate}</TableCell>
+            <TableCell>{ratesObject && getRatesRelativeTo(ratesObject).ask}</TableCell>
+            <TableCell>{ratesObject && getRatesRelativeTo(ratesObject).bid}</TableCell>
+            <TableCell>{ratesObject && getRatesRelativeTo(ratesObject).diff24h}</TableCell>
           </TableRow>
         ))}
       </TableBody>
