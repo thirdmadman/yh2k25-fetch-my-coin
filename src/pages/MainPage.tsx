@@ -1,17 +1,7 @@
 import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
-import { IGetRatesResponse, TCoinRates } from '@/types/IGetRatesResponse';
+import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
-
-const getRate = (coinRates: TCoinRates) => {
-  const { usd } = coinRates;
-
-  if (!usd) {
-    return 0;
-  }
-
-  return usd.rate;
-};
+import { CoinsList } from '@/features/coins-list';
 
 export function MainPage() {
   const [rates, setRates] = useState<IGetRatesResponse | null>();
@@ -32,22 +22,7 @@ export function MainPage() {
 
   return (
     <>
-      {rates && (
-        <Table aria-label="Example static collection table">
-          <TableHeader>
-            <TableColumn>Coin</TableColumn>
-            <TableColumn>Rate in USD</TableColumn>
-          </TableHeader>
-          <TableBody>
-            {Object.entries(rates).map(([coin, ratesObject]) => (
-              <TableRow key="1">
-                <TableCell>{coin}</TableCell>
-                <TableCell>{ratesObject && getRate(ratesObject)}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      )}
+      <CoinsList rates={rates} />
     </>
   );
 }
