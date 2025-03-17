@@ -10,7 +10,6 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <Link className="flex justify-start items-center gap-1" to="/">
             <Logo />
-            <p className="font-bold text-inherit">ACME</p>
           </Link>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2"></ul>

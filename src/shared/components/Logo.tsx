@@ -11,5 +11,5 @@ export function Logo(props: ILogoProps) {
     text = props.text;
   }
 
-  return <h1>{text}</h1>;
+  return <p className="text-primary text-xl font-bold">{text}</p>;
 }
