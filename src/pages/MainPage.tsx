@@ -1,8 +1,9 @@
+import { APP_NAME } from '@/constants';
+import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
+import { Logo } from '@/shared/components/Logo';
+import { IGetRatesResponse, TCoinRates } from '@/types/IGetRatesResponse';
 import { useEffect, useState } from 'react';
-import { Logo } from './components/Logo';
-import { APP_NAME } from './constants';
-import { YouHodlerApiClient } from './services/YouHodlerApiClient';
-import { IGetRatesResponse, TCoinRates } from './types/IGetRatesResponse';
+import { Button } from '@heroui/button';
 
 const getRate = (coinRates: TCoinRates) => {
   const { usd } = coinRates;
@@ -14,7 +15,7 @@ const getRate = (coinRates: TCoinRates) => {
   return usd.rate;
 };
 
-function App() {
+export function MainPage() {
   const [rates, setRates] = useState<IGetRatesResponse | null>();
 
   useEffect(() => {
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <Logo text={APP_NAME} />
+      <Button color="primary">Button</Button>
       {rates &&
         Object.entries(rates).map(([coin, ratesObject]) => (
           <div key={coin}>
@@ -43,5 +45,3 @@ function App() {
     </>
   );
 }
-
-export default App;
