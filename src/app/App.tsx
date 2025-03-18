@@ -5,7 +5,7 @@ const router = createHashRouter([routes]);
 
 function App() {
   return (
-    <main className="dark text-foreground bg-background">
+    <main className="dark text-foreground bg-background h-full">
       <RouterProvider router={router} />
     </main>
   );

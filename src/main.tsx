@@ -8,7 +8,7 @@ import { HeroUIProvider } from '@heroui/react';
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HeroUIProvider>
+    <HeroUIProvider className="h-full">
       <App />
     </HeroUIProvider>
   </StrictMode>
