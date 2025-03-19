@@ -2,6 +2,7 @@ import { getTickerIcon } from '@/shared/utils/getTickerIcon';
 import { getTickerName } from '@/shared/utils/getTickerName';
 import { IGetRatesResponse, TCoinRates } from '@/types/IGetRatesResponse';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
+import { Link } from 'react-router';
 
 const getRatesRelativeTo = (coinRates: TCoinRates, coinRelativeTo = 'usd') => {
   const relativeRates = coinRates[coinRelativeTo];
@@ -37,13 +38,14 @@ export function CoinsList({ rates }: ICoinsListProps) {
         <TableColumn>Ask in USD</TableColumn>
         <TableColumn>Bid in USD</TableColumn>
         <TableColumn>Difference in 24H</TableColumn>
-
       </TableHeader>
       <TableBody>
         {Object.entries(rates).map(([coin, ratesObject]) => (
           <TableRow key={coin}>
             <TableCell>
-              <img width={32} height={32} src={getTickerIcon(coin)} alt={coin} />
+              <Link to={`/rates/${coin}`}>
+                <img width={32} height={32} src={getTickerIcon(coin)} alt={coin} />
+              </Link>
             </TableCell>
             <TableCell>{coin}</TableCell>
             <TableCell>{ratesObject && getTickerName(coin)}</TableCell>
