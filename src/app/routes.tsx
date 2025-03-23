@@ -1,9 +1,9 @@
 import { IndexRouteObject, NonIndexRouteObject, RouteObject } from 'react-router';
 
 import { ROUTE_COIN_RATES_PAGE, ROUTE_MAIN } from '@/constants';
-import { MainPage } from '@/pages/MainPage';
+import { MainPage } from '@/pages/main/';
 import { PageLayout } from './PageLayout';
-import { CoinRatesPage } from '@/pages/CoinRatesPage';
+import { CoinRatesPage } from '@/pages/coin-rates/';
 
 export type TExtendedRouteObject =
   | (IndexRouteObject & {

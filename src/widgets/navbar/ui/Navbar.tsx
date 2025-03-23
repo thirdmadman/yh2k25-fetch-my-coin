@@ -1,7 +1,7 @@
+import { Logo } from '@/shared/ui/logo';
 import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent } from '@heroui/navbar';
 
 import { Link } from 'react-router';
-import { Logo } from './Logo';
 
 export const Navbar = () => {
   return (

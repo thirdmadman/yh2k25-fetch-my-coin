@@ -1,7 +1,7 @@
 import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
 import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { useEffect, useState } from 'react';
-import { CoinsList } from '@/features/coins-list';
+import { CoinsList } from '@/features/coins-list/';
 
 export function MainPage() {
   const [rates, setRates] = useState<IGetRatesResponse | null>();
