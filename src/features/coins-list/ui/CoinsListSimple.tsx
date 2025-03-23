@@ -5,8 +5,6 @@ import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from '@heroui/react';
 import { Link } from 'react-router';
 
-
-
 interface ICoinsListSimpleProps {
   rates: IGetRatesResponse | null | undefined;
 }

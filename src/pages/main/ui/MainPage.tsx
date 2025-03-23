@@ -2,6 +2,7 @@ import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
 import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { useEffect, useState } from 'react';
 import { CoinsList } from '@/features/coins-list/';
+import { remapData } from '@/shared/utils';
 
 export function MainPage() {
   const [rates, setRates] = useState<IGetRatesResponse | null>();
@@ -22,7 +23,7 @@ export function MainPage() {
 
   return (
     <>
-      <CoinsList rates={rates} />
+      <CoinsList rates={remapData(rates ?? null)} />
     </>
   );
 }

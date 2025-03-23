@@ -16,36 +16,16 @@ import {
   TableRow,
 } from '@heroui/react';
 import { columns } from './columns';
-import { ICoinRateObject, IGetRatesResponse } from '@/types/IGetRatesResponse';
+import { ICoinRateObject } from '@/types/IGetRatesResponse';
 import { Link } from 'react-router';
-import { getTickerIcon, getTickerName } from '@/shared/utils';
-import { getRatesRelativeTo } from '@/shared/utils/getRatesRelativeTo';
+
 import { ChevronDownIcon, SearchIcon } from '@/shared/ui/icons';
+import { IRemappedCoinRateObject } from '@/shared/utils/remapData';
 
-const INITIAL_VISIBLE_COLUMNS = ['icon', 'coin', 'name', 'rate', 'ask', 'bid', 'diff24h'];
-
-interface IRemappedCoinRateObject extends ICoinRateObject {
-  coin: string;
-  icon: string;
-  name: string;
-}
-
-const remapData = (data: IGetRatesResponse) => {
-  return [
-    ...Object.entries(data).map(
-      ([coin, ratesObject]) =>
-        ({
-          coin,
-          icon: getTickerIcon(coin),
-          name: getTickerName(coin),
-          ...getRatesRelativeTo(ratesObject ? ratesObject : {}),
-        }) as IRemappedCoinRateObject
-    ),
-  ];
-};
+const INITIAL_VISIBLE_COLUMNS = ['icon', 'name', 'rate', 'ask', 'bid', 'diff24h'];
 
 interface ICoinsListProps {
-  rates: IGetRatesResponse | null | undefined;
+  rates: Array<IRemappedCoinRateObject> | null | undefined;
 }
 
 export function CoinsList({ rates }: ICoinsListProps) {
@@ -69,7 +49,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
       return null;
     }
 
-    let filtered: Array<IRemappedCoinRateObject> = remapData(rates);
+    let filtered = rates;
 
     if (hasSearchFilter) {
       filtered = filtered.filter(
@@ -109,7 +89,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
         return (
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
-            <p className="text-bold text-tiny capitalize text-default-400">{object.coin}</p>
+            <p className="text-bold text-tiny uppercase text-default-400">{object.coin}</p>
           </div>
         );
       case 'coin':
@@ -121,7 +101,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
       case 'bid':
         return object.bid;
       case 'diff24h':
-        return object.diff24h;
+        return <p className={object.diff24h > 0 ? 'text-green-500' :  object.diff24h === 0 ? '' : 'text-red-500' }>{object.diff24h}</p>;
       default:
         return cellValue;
     }
@@ -180,7 +160,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total {rates?.length ? '0' : ''} rows</span>
+          <span className="text-default-400 text-small">Total {rates?.length ? rates.length : '0'} rows</span>
         </div>
       </div>
     );
