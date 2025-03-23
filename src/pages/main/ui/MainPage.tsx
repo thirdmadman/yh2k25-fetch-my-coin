@@ -44,7 +44,7 @@ export function MainPage() {
           >
             {data && data.map((animal) => <SelectItem key={animal.coin}>{animal.coin}</SelectItem>)}
           </Select>
-          <Button onPress={() => fetchData()}>ReFetch rates</Button>
+          <Button color="primary" onPress={() => fetchData()}>ReFetch</Button>
         </div>
       </div>
       <CoinsList rates={data} />

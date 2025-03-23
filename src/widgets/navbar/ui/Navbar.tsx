@@ -14,7 +14,7 @@ export const Navbar = () => {
           </Link>
         </NavbarBrand>
         <NavbarContent justify="end">
-          <ul className="hidden lg:flex gap-4 justify-start ml-2">
+          <ul className="ml-2">
             <ThemeSwitch />
           </ul>
         </NavbarContent>

@@ -140,7 +140,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
           />
           <div className="flex gap-3">
             <Dropdown>
-              <DropdownTrigger className="hidden sm:flex">
+              <DropdownTrigger className="flex">
                 <Button endContent={<ChevronDownIcon className="text-small" />} variant="flat">
                   Columns
                 </Button>
