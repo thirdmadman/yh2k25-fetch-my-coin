@@ -2,6 +2,7 @@ import { Logo } from '@/shared/ui/logo';
 import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent } from '@heroui/navbar';
 
 import { Link } from 'react-router';
+import { ThemeSwitch } from './ThemeSwitch';
 
 export const Navbar = () => {
   return (
@@ -12,7 +13,11 @@ export const Navbar = () => {
             <Logo />
           </Link>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2"></ul>
+        <NavbarContent justify="end">
+          <ul className="hidden lg:flex gap-4 justify-start ml-2">
+            <ThemeSwitch />
+          </ul>
+        </NavbarContent>
       </NavbarContent>
     </HeroUINavbar>
   );
