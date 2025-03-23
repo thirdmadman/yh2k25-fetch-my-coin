@@ -8,7 +8,7 @@ export interface IRemappedCoinRateObject extends ICoinRateObject {
   name: string;
 }
 
-export const remapData = (data: IGetRatesResponse | null) => {
+export const remapDataRelativeTo = (data: IGetRatesResponse | null, coinRelativeTo = 'usd') => {
   if (!data) {
     return null;
   }
@@ -20,7 +20,7 @@ export const remapData = (data: IGetRatesResponse | null) => {
           coin,
           icon: getTickerIcon(coin),
           name: getTickerName(coin),
-          ...getRatesRelativeTo(ratesObject ? ratesObject : {}),
+          ...getRatesRelativeTo(ratesObject ? ratesObject : {}, coinRelativeTo),
         }) as IRemappedCoinRateObject
     ),
   ];

@@ -20,7 +20,7 @@ import { ICoinRateObject } from '@/types/IGetRatesResponse';
 import { Link } from 'react-router';
 
 import { ChevronDownIcon, SearchIcon } from '@/shared/ui/icons';
-import { IRemappedCoinRateObject } from '@/shared/utils/remapData';
+import { IRemappedCoinRateObject } from '@/shared/utils/remapDataRelativeTo';
 
 const INITIAL_VISIBLE_COLUMNS = ['icon', 'name', 'rate', 'ask', 'bid', 'diff24h'];
 
@@ -101,7 +101,11 @@ export function CoinsList({ rates }: ICoinsListProps) {
       case 'bid':
         return object.bid;
       case 'diff24h':
-        return <p className={object.diff24h > 0 ? 'text-green-500' :  object.diff24h === 0 ? '' : 'text-red-500' }>{object.diff24h}</p>;
+        return (
+          <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
+            {object.diff24h}
+          </p>
+        );
       default:
         return cellValue;
     }
@@ -174,6 +178,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
       topContent={topContent}
       topContentPlacement="outside"
       onSortChange={setSortDescriptor}
+      isStriped
     >
       <TableHeader columns={headerColumns}>
         {(column) => (
