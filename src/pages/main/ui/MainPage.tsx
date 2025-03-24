@@ -1,26 +1,29 @@
 import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
-import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CoinsList } from '@/features/coins-list/';
 import { remapDataRelativeTo } from '@/shared/utils';
 import { Button, Select, SelectItem } from '@heroui/react';
+import { useRootStore } from '@/app/useStores';
+import { observer } from 'mobx-react-lite';
 
-export function MainPage() {
-  const [rates, setRates] = useState<IGetRatesResponse | null>();
-  const [coinRelativeTo, setCoinRelativeTo] = useState<string>('usd');
+export const MainPage = observer(() => {
+  const store = useRootStore();
+  const { rates, coinRelativeTo } = store.coinRatesStore;
 
   const fetchData = useCallback(async () => {
     const youHodlerApiClient = new YouHodlerApiClient();
 
     const rates = await youHodlerApiClient.getRates();
 
-    setRates(rates);
+    store.coinRatesStore.setRates(rates);
   }, []);
 
   useEffect(() => {
-    fetchData().catch((e: unknown) => {
-      console.error(e);
-    });
+    if (!store.coinRatesStore.rates) {
+      fetchData().catch((e: unknown) => {
+        console.error(e);
+      });
+    }
   }, []);
 
   const data = useMemo(() => {
@@ -39,15 +42,22 @@ export function MainPage() {
             className="max-w-xs"
             label="Coin as base for rates"
             placeholder="Select a coin"
-            defaultSelectedKeys={['usd']}
-            onChange={(res) => setCoinRelativeTo(res.target.value)}
+            defaultSelectedKeys={[coinRelativeTo]}
+            onChange={(res) => store.coinRatesStore.setCoinRelativeTo(res.target.value)}
           >
             {data && data.map((animal) => <SelectItem key={animal.coin}>{animal.coin}</SelectItem>)}
           </Select>
-          <Button color="primary" onPress={() => fetchData()}>ReFetch</Button>
+          <Button
+            color="primary"
+            onPress={() => {
+              fetchData();
+            }}
+          >
+            ReFetch
+          </Button>
         </div>
       </div>
       <CoinsList rates={data} />
     </>
   );
-}
+});
