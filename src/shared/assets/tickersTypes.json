@@ -1,0 +1,639 @@
+{
+  "data": [
+    {
+      "ticker": "rep",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "usdc_e",
+      "tags": ["crypto", "stableCoin"],
+      "versions": [{ "version": "polygon", "name": "Polygon (previously Matic Network)" }],
+      "isVisible": true
+    },
+    { "ticker": "not", "tags": ["crypto"], "versions": [{ "version": "ton", "name": "TON" }], "isVisible": true },
+    { "ticker": "ray", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    { "ticker": "eur", "tags": ["fiat", "base"], "versions": [], "isVisible": true },
+    {
+      "ticker": "bnb",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "ldo",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "wen", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    { "ticker": "hmstr", "tags": ["crypto"], "versions": [{ "version": "ton", "name": "TON" }], "isVisible": true },
+    {
+      "ticker": "bch",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bch", "name": "Bitcoin Cash" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "1inch",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "usdp",
+      "tags": ["crypto", "stableCoin"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "pol",
+      "tags": ["crypto"],
+      "versions": [{ "version": "polygon", "name": "Polygon (previously Matic Network)" }],
+      "isVisible": true
+    },
+    { "ticker": "myro", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "om",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "bars",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "doge",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "ada",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "snx",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "atom",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "bonus", "tags": ["bonus"], "versions": [], "isVisible": true },
+    {
+      "ticker": "ilv",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "fil",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "pyusd",
+      "tags": ["stableCoin"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "bttc",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "xrp", "tags": ["crypto"], "versions": [{ "version": "xrp", "name": "Ripple" }], "isVisible": true },
+    {
+      "ticker": "inj",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "mkr",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "gmt",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "sol", "name": "Solana" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "trx",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "trc20", "name": "TRON (TRC-20)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    { "ticker": "jup", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "eigen",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "s", "tags": ["crypto"], "versions": [{ "version": "sonic", "name": "Sonic" }], "isVisible": true },
+    { "ticker": "xtz", "tags": ["crypto"], "versions": [{ "version": "xtz", "name": "Tezos" }], "isVisible": true },
+    {
+      "ticker": "move",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "aave",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "floki",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "pepe",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "yhdlbeta", "tags": ["crypto"], "versions": [], "isVisible": true },
+    {
+      "ticker": "jasmy",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "yfi",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "tusd",
+      "tags": ["stableCoin"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    { "ticker": "eos", "tags": ["crypto"], "versions": [{ "version": "eos", "name": "EOSIO" }], "isVisible": true },
+    {
+      "ticker": "flow",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "cati", "tags": ["crypto"], "versions": [{ "version": "ton", "name": "TON" }], "isVisible": true },
+    {
+      "ticker": "axs",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "render", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    { "ticker": "silly", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "link",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "ondo",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "dash", "tags": ["crypto"], "versions": [{ "version": "dash", "name": "Dash" }], "isVisible": true },
+    {
+      "ticker": "uni",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    { "ticker": "me", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "sgb",
+      "tags": ["crypto"],
+      "versions": [{ "version": "sgb20", "name": "Songbird" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "trump",
+      "tags": ["crypto", "token"],
+      "versions": [{ "version": "sol", "name": "Solana" }],
+      "isVisible": true
+    },
+    { "ticker": "sol", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "ftt",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "dai",
+      "tags": ["crypto", "stableCoin"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "polygon", "name": "Polygon (previously Matic Network)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "ethw",
+      "tags": ["crypto"],
+      "versions": [{ "version": "ethw", "name": "Ethereum PoW" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "ape",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "lista",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "ht",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "paxg",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "usdc",
+      "tags": ["crypto", "stableCoin"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "polygon", "name": "Polygon (previously Matic Network)" },
+        { "version": "sol", "name": "Solana" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "ena",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "wld",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "cake",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "sand",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "ltc", "tags": ["crypto"], "versions": [{ "version": "ltc", "name": "Litecoin" }], "isVisible": true },
+    { "ticker": "dogs", "tags": ["crypto"], "versions": [{ "version": "ton", "name": "TON" }], "isVisible": true },
+    {
+      "ticker": "bnt",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "vet",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "sushi",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "pyth", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "fet",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "mnt",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "mana",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "w",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "sol", "name": "Solana" }
+      ],
+      "isVisible": true
+    },
+    { "ticker": "dot", "tags": ["crypto"], "versions": [{ "version": "dot", "name": "Polkadot" }], "isVisible": true },
+    { "ticker": "pengu", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "strk",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "omg",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "husd",
+      "tags": ["stableCoin"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "wif", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    { "ticker": "tremp", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    { "ticker": "xlm", "tags": ["crypto"], "versions": [{ "version": "xlm", "name": "Stellar" }], "isVisible": true },
+    {
+      "ticker": "avax",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "avax", "name": "Avax" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "bonk",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "sol", "name": "Solana" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "near",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "btc",
+      "tags": ["crypto", "base"],
+      "versions": [
+        { "version": "origin", "name": "Bitcoin (Main)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "zil",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "eurs",
+      "tags": ["crypto", "stableCoin"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "banana",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "ftm",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "bat",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "zro",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "polygon", "name": "Polygon (previously Matic Network)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "grt",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "yhdl",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "arbitrum", "name": "Arbitrum" },
+        { "version": "sol", "name": "Solana" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "qnt",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "comp",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "meme",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "gala",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    {
+      "ticker": "egld",
+      "tags": ["crypto"],
+      "versions": [{ "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "ton", "tags": ["crypto"], "versions": [{ "version": "ton", "name": "TON" }], "isVisible": true },
+    {
+      "ticker": "shib",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    { "ticker": "io", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "people",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "eth",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" }
+      ],
+      "isVisible": true
+    },
+    { "ticker": "flr", "tags": ["crypto"], "versions": [{ "version": "flr", "name": "Flare" }], "isVisible": true },
+    { "ticker": "popcat", "tags": ["crypto"], "versions": [{ "version": "sol", "name": "Solana" }], "isVisible": true },
+    {
+      "ticker": "usual",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "chf", "tags": ["fiat"], "versions": [], "isVisible": true },
+    {
+      "ticker": "imx",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "usd", "tags": ["fiat", "base"], "versions": [], "isVisible": true },
+    {
+      "ticker": "usdt",
+      "tags": ["crypto", "stableCoin"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" },
+        { "version": "trc20", "name": "TRON (TRC-20)" },
+        { "version": "polygon", "name": "Polygon (previously Matic Network)" },
+        { "version": "sol", "name": "Solana" }
+      ],
+      "isVisible": true
+    },
+    {
+      "ticker": "zrx",
+      "tags": ["crypto"],
+      "versions": [{ "version": "erc20", "name": "Ethereum (ERC-20)" }],
+      "isVisible": true
+    },
+    { "ticker": "gbp", "tags": ["fiat"], "versions": [], "isVisible": true },
+    {
+      "ticker": "pendle",
+      "tags": ["crypto"],
+      "versions": [
+        { "version": "bep20", "name": "BNB Smart Chain (BEP-20)" },
+        { "version": "erc20", "name": "Ethereum (ERC-20)" }
+      ],
+      "isVisible": true
+    }
+  ]
+}
