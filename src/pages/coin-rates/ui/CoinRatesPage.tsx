@@ -1,9 +1,11 @@
+import { useRootStore } from '@/app/useStores';
 import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
 import { getTickerIcon } from '@/shared/utils/getTickerIcon';
 import { getTickerName } from '@/shared/utils/getTickerName';
 import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { Card, CardBody, CardHeader, Divider, Image } from '@heroui/react';
-import { useEffect, useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 const getCoinRatesRelativeTo = (rates: IGetRatesResponse | null, coin: string, coinRelativeTo = 'usd') => {
@@ -33,23 +35,26 @@ const getCoinRatesRelativeTo = (rates: IGetRatesResponse | null, coin: string, c
   return coinRate;
 };
 
-export function CoinRatesPage() {
+export const CoinRatesPage = observer(() => {
   const { ticker } = useParams();
 
-  const [rates, setRates] = useState<IGetRatesResponse | null>();
+  const store = useRootStore();
+  const { rates } = store.coinRatesStore;
+
+  const fetchData = useCallback(async () => {
+    const youHodlerApiClient = new YouHodlerApiClient();
+
+    const rates = await youHodlerApiClient.getRates();
+
+    store.coinRatesStore.setRates(rates);
+  }, []);
 
   useEffect(() => {
-    const getRates = async () => {
-      const youHodlerApiClient = new YouHodlerApiClient();
-
-      const rates = await youHodlerApiClient.getRates();
-
-      setRates(rates);
-    };
-
-    getRates().catch((e: unknown) => {
-      console.error(e);
-    });
+    if (!store.coinRatesStore.rates) {
+      fetchData().catch((e: unknown) => {
+        console.error(e);
+      });
+    }
   }, []);
 
   return (
@@ -73,4 +78,4 @@ export function CoinRatesPage() {
       </Card>
     </>
   );
-}
+});
