@@ -6,8 +6,6 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Input,
-  SharedSelection,
-  SortDescriptor,
   Table,
   TableBody,
   TableCell,
@@ -21,20 +19,16 @@ import { Link } from 'react-router';
 
 import { ChevronDownIcon, SearchIcon } from '@/shared/ui/icons';
 import { IRemappedCoinRateObject } from '@/shared/utils/remapDataRelativeTo';
-
-const INITIAL_VISIBLE_COLUMNS = ['icon', 'name', 'rate', 'ask', 'bid', 'diff24h'];
+import { useRootStore } from '@/app/useStores';
+import { observer } from 'mobx-react-lite';
 
 interface ICoinsListProps {
   rates: Array<IRemappedCoinRateObject> | null | undefined;
 }
 
-export function CoinsList({ rates }: ICoinsListProps) {
-  const [filterValue, setFilterValue] = React.useState('');
-  const [visibleColumns, setVisibleColumns] = React.useState<SharedSelection>(new Set(INITIAL_VISIBLE_COLUMNS));
-  const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
-    column: 'name',
-    direction: 'ascending',
-  });
+export const CoinsList = observer(({ rates }: ICoinsListProps) => {
+  const store = useRootStore();
+  const { filterValue, visibleColumns, sortDescriptor } = store.coinsListStore;
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -111,17 +105,20 @@ export function CoinsList({ rates }: ICoinsListProps) {
     }
   }, []);
 
-  const onSearchChange = React.useCallback((value: string) => {
-    if (value) {
-      setFilterValue(value);
-    } else {
-      setFilterValue('');
-    }
-  }, []);
+  const onSearchChange = React.useCallback(
+    (value: string) => {
+      if (value) {
+        store.coinsListStore.setFilterValue(value);
+      } else {
+        store.coinsListStore.setFilterValue('');
+      }
+    },
+    [store.coinsListStore]
+  );
 
   const onClear = React.useCallback(() => {
-    setFilterValue('');
-  }, []);
+    store.coinsListStore.setFilterValue('');
+  }, [store.coinsListStore]);
 
   const topContent = React.useMemo(() => {
     return (
@@ -152,7 +149,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
                 closeOnSelect={false}
                 selectedKeys={visibleColumns}
                 selectionMode="multiple"
-                onSelectionChange={setVisibleColumns}
+                onSelectionChange={(val) => store.coinsListStore.setVisibleColumns(val)}
               >
                 {columns.map((column) => (
                   <DropdownItem key={column.uid} className="capitalize">
@@ -177,7 +174,7 @@ export function CoinsList({ rates }: ICoinsListProps) {
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"
-      onSortChange={setSortDescriptor}
+      onSortChange={(val) => store.coinsListStore.setSortDescriptor(val)}
       isStriped
     >
       <TableHeader columns={headerColumns}>
@@ -196,4 +193,4 @@ export function CoinsList({ rates }: ICoinsListProps) {
       </TableBody>
     </Table>
   );
-}
+});

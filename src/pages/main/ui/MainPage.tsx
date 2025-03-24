@@ -1,5 +1,5 @@
 import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { CoinsList } from '@/features/coins-list/';
 import { remapDataRelativeTo } from '@/shared/utils';
 import { Button, Select, SelectItem } from '@heroui/react';
@@ -45,7 +45,7 @@ export const MainPage = observer(() => {
             defaultSelectedKeys={[coinRelativeTo]}
             onChange={(res) => store.coinRatesStore.setCoinRelativeTo(res.target.value)}
           >
-            {data && data.map((animal) => <SelectItem key={animal.coin}>{animal.coin}</SelectItem>)}
+            {data && data.map((item) => <SelectItem key={item.coin}>{item.coin}</SelectItem>)}
           </Select>
           <Button
             color="primary"
