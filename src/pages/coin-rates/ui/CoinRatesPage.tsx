@@ -5,7 +5,7 @@ import { getTickerName } from '@/shared/utils/getTickerName';
 import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { Card, CardBody, CardHeader, Divider, Image } from '@heroui/react';
 import { observer } from 'mobx-react-lite';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router';
 
 const getCoinRatesRelativeTo = (rates: IGetRatesResponse | null, coin: string, coinRelativeTo = 'usd') => {
