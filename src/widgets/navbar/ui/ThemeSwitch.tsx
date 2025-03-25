@@ -31,14 +31,15 @@ export function ThemeSwitch() {
   const isDark = theme === 'dark';
 
   return (
-    <div className="flex items-center justify-center min-w-[44px] min-h-[44px]">
-      <button
-        onClick={() => {
-          handleThemeChange(isDark ? 'light' : 'dark');
-        }}
-      >
-        {isDark ? lightModeImage : darkModeImage}
-      </button>
-    </div>
+    <button
+      type="button"
+      aria-controls="theme-switch"
+      className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-md p-2 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-neutral-800 focus:outline-hidden cursor-pointer"
+      onClick={() => {
+        handleThemeChange(isDark ? 'light' : 'dark');
+      }}
+    >
+      {isDark ? lightModeImage : darkModeImage}
+    </button>
   );
 }
