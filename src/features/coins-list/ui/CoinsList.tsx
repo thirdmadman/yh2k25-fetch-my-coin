@@ -89,15 +89,15 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
       case 'coin':
         return object.coin;
       case 'rate':
-        return object.rate;
+        return object.rate != 0 ? object.rate.toFixed(4) : 0;
       case 'ask':
-        return object.ask;
+        return object.ask != 0 ? object.ask.toFixed(4) : 0;
       case 'bid':
-        return object.bid;
+        return object.bid != 0 ? object.bid.toFixed(4) : 0;
       case 'diff24h':
         return (
           <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
-            {object.diff24h}
+            {object.diff24h !== 0 ? object.diff24h.toFixed(4) : 0}
           </p>
         );
       default:
