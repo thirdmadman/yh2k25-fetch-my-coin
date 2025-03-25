@@ -16,13 +16,13 @@ const getCoinRatesRelativeTo = (rates: IGetRatesResponse | null, coin: string, c
     return defaultRate;
   }
 
-  const coinRates = rates[coinRelativeTo];
+  const coinRates = rates[coin];
 
   if (!coinRates) {
     return defaultRate;
   }
 
-  const coinRate = coinRates[coin];
+  const coinRate = coinRates[coinRelativeTo];
 
   if (!coinRate) {
     return defaultRate;
