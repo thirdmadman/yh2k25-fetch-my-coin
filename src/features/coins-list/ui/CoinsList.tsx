@@ -149,7 +149,9 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
                 closeOnSelect={false}
                 selectedKeys={visibleColumns}
                 selectionMode="multiple"
-                onSelectionChange={(val) => store.coinsListStore.setVisibleColumns(val)}
+                onSelectionChange={(val) => {
+                  store.coinsListStore.setVisibleColumns(val);
+                }}
               >
                 {columns.map((column) => (
                   <DropdownItem key={column.uid} className="capitalize">
@@ -161,7 +163,7 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total {rates?.length ? rates.length : '0'} rows</span>
+          <span className="text-default-400 text-small">Total {rates?.length ?? '0'} rows</span>
         </div>
       </div>
     );
@@ -174,7 +176,9 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"
-      onSortChange={(val) => store.coinsListStore.setSortDescriptor(val)}
+      onSortChange={(val) => {
+        store.coinsListStore.setSortDescriptor(val);
+      }}
       isStriped
     >
       <TableHeader columns={headerColumns}>

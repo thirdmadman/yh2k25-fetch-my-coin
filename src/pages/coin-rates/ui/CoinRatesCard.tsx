@@ -63,10 +63,11 @@ export function CoinRatesCard({ ticker, rates }: ICoinRatesCardProps) {
           </p>
         </div>
         <div className="flex gap-4">
-          Types: <div className="flex gap-2">{tickerType?.tags?.map((el) => <Chip>{el}</Chip>)}</div>
+          Types: <div className="flex gap-2">{tickerType?.tags?.map((el) => <Chip key={el}>{el}</Chip>)}</div>
         </div>
         <div className="flex gap-4">
-          Versions: <div className="flex gap-2">{tickerType?.versions?.map((ver) => <Chip>{ver.name}</Chip>)}</div>
+          Versions:{' '}
+          <div className="flex gap-2">{tickerType?.versions?.map((ver) => <Chip key={ver.name}>{ver.name}</Chip>)}</div>
         </div>
       </CardBody>
     </Card>

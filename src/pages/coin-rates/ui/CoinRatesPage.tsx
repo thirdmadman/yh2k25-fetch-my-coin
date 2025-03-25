@@ -5,8 +5,6 @@ import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { CoinRatesCard } from './CoinRatesCard';
 
-
-
 export const CoinRatesPage = observer(() => {
   const { ticker } = useParams();
 

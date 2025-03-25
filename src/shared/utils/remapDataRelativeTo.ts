@@ -20,7 +20,7 @@ export const remapDataRelativeTo = (data: IGetRatesResponse | null, coinRelative
           coin,
           icon: getTickerIcon(coin),
           name: getTickerName(coin),
-          ...getRatesRelativeTo(ratesObject ? ratesObject : {}, coinRelativeTo),
+          ...getRatesRelativeTo(ratesObject ?? {}, coinRelativeTo),
         }) as IRemappedCoinRateObject
     ),
   ];

@@ -1,4 +1,4 @@
-import { TCoinRates } from "@/types/IGetRatesResponse";
+import { TCoinRates } from '@/types/IGetRatesResponse';
 
 export const getRatesRelativeTo = (coinRates: TCoinRates, coinRelativeTo = 'usd') => {
   const relativeRates = coinRates[coinRelativeTo];

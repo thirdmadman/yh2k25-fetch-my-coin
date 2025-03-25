@@ -11,7 +11,7 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 export default tseslint.config(
   {
     // config with just ignores is the replacement for `.eslintignore`
-    ignores: ['**/build/**', '**/dist/**', 'eslint.config.mjs'],
+    ignores: ['**/build/**', '**/dist/**', 'eslint.config.mjs', `**/*.js`],
   },
   {
     files: ['**/*.{ts,tsx}'],

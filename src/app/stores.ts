@@ -43,12 +43,12 @@ const INITIAL_VISIBLE_COLUMNS = ['icon', 'name', 'rate', 'ask', 'bid', 'diff24h'
 export class CoinsListStore {
   rootStore: RootStore;
 
-  filterValue: string = '';
+  filterValue = '';
   visibleColumns: SharedSelection = new Set(INITIAL_VISIBLE_COLUMNS);
   sortDescriptor: SortDescriptor = {
-      column: 'name',
-      direction: 'ascending',
-    }
+    column: 'name',
+    direction: 'ascending',
+  };
 
   constructor(rootStore: RootStore) {
     makeAutoObservable(this, {
@@ -73,7 +73,7 @@ export class CoinsListStore {
     this.visibleColumns = visibleColumns;
   }
 
-  setSortDescriptor(sortDescriptor: SortDescriptor)  {
+  setSortDescriptor(sortDescriptor: SortDescriptor) {
     this.sortDescriptor = sortDescriptor;
   }
 }

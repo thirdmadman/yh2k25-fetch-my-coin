@@ -43,14 +43,18 @@ export const MainPage = observer(() => {
             label="Coin as base for rates"
             placeholder="Select a coin"
             defaultSelectedKeys={[coinRelativeTo]}
-            onChange={(res) => store.coinRatesStore.setCoinRelativeTo(res.target.value)}
+            onChange={(res) => {
+              store.coinRatesStore.setCoinRelativeTo(res.target.value);
+            }}
           >
-            {data && data.map((item) => <SelectItem key={item.coin}>{item.coin}</SelectItem>)}
+            {data?.map((item) => <SelectItem key={item.coin}>{item.coin}</SelectItem>) ?? null}
           </Select>
           <Button
             color="primary"
             onPress={() => {
-              fetchData();
+              fetchData().catch((e: unknown) => {
+                console.error(e);
+              });
             }}
           >
             ReFetch
