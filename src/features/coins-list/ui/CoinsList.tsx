@@ -102,14 +102,15 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
         return formatRateNumber(object.bid);
       case 'diff24h':
         return (
-          <div>
-            <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
-              {formatRateNumber(object.diff24h)}
-            </p>
-            <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
-              {getDiff24hPercentageFormatted(object.rate, object.diff24h)} %
-            </p>
-          </div>
+          <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
+            {formatRateNumber(object.diff24h)}
+          </p>
+        );
+      case 'diff24hPercent':
+        return (
+          <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
+            {getDiff24hPercentageFormatted(object.rate, object.diff24h)} %
+          </p>
         );
       default:
         return cellValue;

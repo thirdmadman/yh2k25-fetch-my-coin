@@ -33,4 +33,9 @@ export const columns = [
     uid: 'diff24h',
     sortable: true,
   },
+  {
+    name: 'Difference in %',
+    uid: 'diff24hPercent',
+    sortable: true,
+  },
 ];

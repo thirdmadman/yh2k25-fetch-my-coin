@@ -38,7 +38,7 @@ export class CoinsRatesStore {
   }
 }
 
-const INITIAL_VISIBLE_COLUMNS = ['icon', 'name', 'rate', 'ask', 'bid', 'diff24h'];
+const INITIAL_VISIBLE_COLUMNS = ['icon', 'name', 'rate', 'ask', 'bid', 'diff24h', 'diff24hPercent'];
 
 export class CoinsListStore {
   rootStore: RootStore;
