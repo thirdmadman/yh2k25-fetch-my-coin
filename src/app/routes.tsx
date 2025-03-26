@@ -1,9 +1,10 @@
 import { IndexRouteObject, NonIndexRouteObject, RouteObject } from 'react-router';
 
-import { ROUTE_COIN_RATES_PAGE, ROUTE_MAIN } from '@/constants';
+import { ROUTES } from '@/constants';
 import { MainPage } from '@/pages/main/';
 import { PageLayout } from './PageLayout';
 import { CoinRatesPage } from '@/pages/coin-rates/';
+import { AboutPage } from '@/pages/about';
 
 export type TExtendedRouteObject =
   | (IndexRouteObject & {
@@ -18,18 +19,29 @@ export type TRoutesTreeType = Array<TExtendedRouteObject>;
 
 export const ROUTES_TREE: TRoutesTreeType = [
   {
-    path: ROUTE_MAIN,
+    path: ROUTES.main,
     name: 'Main',
     element: <MainPage />,
   },
   {
-    path: ROUTE_COIN_RATES_PAGE,
+    path: ROUTES.ratesPage,
     name: 'Coin Rates',
     children: [
       {
         index: true,
         name: 'Coin Rates',
         element: <CoinRatesPage />,
+      },
+    ],
+  },
+  {
+    path: ROUTES.about,
+    name: 'About',
+    children: [
+      {
+        index: true,
+        name: 'About',
+        element: <AboutPage />,
       },
     ],
   },

@@ -1,3 +1,4 @@
+import { getDiff24hPercentage } from '@/shared/utils';
 import { getTickerIcon } from '@/shared/utils/getTickerIcon';
 import { getTickerName } from '@/shared/utils/getTickerName';
 import { getTickerType } from '@/shared/utils/getTickerType';
@@ -57,9 +58,15 @@ export function CoinRatesCard({ ticker, rates }: ICoinRatesCardProps) {
         <p>Bid: {relativeData.bid}</p>
         <p>Ask: {relativeData.ask}</p>
         <div className="flex gap-4">
-          Difference in 24H:{' '}
+          Difference in 24H (absolute):{' '}
           <p className={relativeData.diff24h > 0 ? 'text-green-500' : relativeData.diff24h === 0 ? '' : 'text-red-500'}>
             {relativeData.diff24h}
+          </p>
+        </div>
+        <div className="flex gap-4">
+          Difference in 24H (percentage):{' '}
+          <p className={relativeData.diff24h > 0 ? 'text-green-500' : relativeData.diff24h === 0 ? '' : 'text-red-500'}>
+            {getDiff24hPercentage(relativeData.rate, relativeData.diff24h).toFixed(2)} %
           </p>
         </div>
         <div className="flex gap-4">

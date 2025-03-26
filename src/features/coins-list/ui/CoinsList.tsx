@@ -107,7 +107,7 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
               {formatRateNumber(object.diff24h)}
             </p>
             <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
-              {getDiff24hPercentageFormatted(object.rate, object.diff24h)}
+              {getDiff24hPercentageFormatted(object.rate, object.diff24h)} %
             </p>
           </div>
         );
