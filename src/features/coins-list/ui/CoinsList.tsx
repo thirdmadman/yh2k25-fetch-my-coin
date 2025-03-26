@@ -16,12 +16,11 @@ import {
 import { columns } from './columns';
 import { ICoinRateObject } from '@/types/IGetRatesResponse';
 import { Link } from 'react-router';
-
 import { ChevronDownIcon, SearchIcon } from '@/shared/ui/icons';
 import { IRemappedCoinRateObject } from '@/shared/utils/remapDataRelativeTo';
 import { useRootStore } from '@/app/useStores';
 import { observer } from 'mobx-react-lite';
-import { formatRateNumber, getDiff24hPercentageFormatted } from '../utils';
+import { formatRateNumber, getDiff24hPercentageFormatted } from '@/shared/utils';
 
 interface ICoinsListProps {
   rates: Array<IRemappedCoinRateObject> | null | undefined;
@@ -77,7 +76,13 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
       case 'icon':
         return (
           <Link to={`/rates/${object.coin}`}>
-            <img width={32} height={32} src={object.icon} alt={object.coin} />
+            <img
+              className="hover:scale-110 transition-all duration-200"
+              width={32}
+              height={32}
+              src={object.icon}
+              alt={object.coin}
+            />
           </Link>
         );
       case 'name':
