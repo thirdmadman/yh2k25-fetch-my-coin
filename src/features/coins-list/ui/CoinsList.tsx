@@ -21,6 +21,7 @@ import { ChevronDownIcon, SearchIcon } from '@/shared/ui/icons';
 import { IRemappedCoinRateObject } from '@/shared/utils/remapDataRelativeTo';
 import { useRootStore } from '@/app/useStores';
 import { observer } from 'mobx-react-lite';
+import { formatRateNumber, getDiff24hPercentageFormatted } from '../utils';
 
 interface ICoinsListProps {
   rates: Array<IRemappedCoinRateObject> | null | undefined;
@@ -89,16 +90,21 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
       case 'coin':
         return object.coin;
       case 'rate':
-        return object.rate != 0 ? object.rate.toFixed(4) : 0;
+        return formatRateNumber(object.rate);
       case 'ask':
-        return object.ask != 0 ? object.ask.toFixed(4) : 0;
+        return formatRateNumber(object.ask);
       case 'bid':
-        return object.bid != 0 ? object.bid.toFixed(4) : 0;
+        return formatRateNumber(object.bid);
       case 'diff24h':
         return (
-          <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
-            {object.diff24h !== 0 ? object.diff24h.toFixed(4) : 0}
-          </p>
+          <div>
+            <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
+              {formatRateNumber(object.diff24h)}
+            </p>
+            <p className={object.diff24h > 0 ? 'text-green-500' : object.diff24h === 0 ? '' : 'text-red-500'}>
+              {getDiff24hPercentageFormatted(object.rate, object.diff24h)}
+            </p>
+          </div>
         );
       default:
         return cellValue;

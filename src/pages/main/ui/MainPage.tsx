@@ -32,7 +32,7 @@ export const MainPage = observer(() => {
 
   return (
     <>
-      <div className="flex flex-col gap-3 justify-between mb-4">
+      <div className="flex flex-col gap-6 justify-between mb-8">
         <div className="">
           <p>All calculations made with assumption that you are using some coin as base. By default it is USD.</p>
           <p>You can change it in the dropdown below.</p>
@@ -51,6 +51,7 @@ export const MainPage = observer(() => {
           </Select>
           <Button
             color="primary"
+            className="h-auto"
             onPress={() => {
               fetchData().catch((e: unknown) => {
                 console.error(e);

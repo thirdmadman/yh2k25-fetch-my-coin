@@ -1,13 +1,5 @@
 import { Logo } from '@/shared/ui/logo';
-import {
-  Navbar as HeroUINavbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from '@heroui/navbar';
-
+import { Navbar as HeroUINavbar, NavbarBrand, NavbarContent, NavbarMenuToggle } from '@heroui/navbar';
 import { Link } from 'react-router';
 import { ThemeSwitch } from './ThemeSwitch';
 import { useState } from 'react';
