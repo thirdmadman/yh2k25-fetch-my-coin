@@ -1,5 +1,5 @@
 import { YH_API_URL } from '@/constants';
-import { IGetRatesResponse } from '@/types/IGetRatesResponse';
+import { GetRatesResponseSchema, IGetRatesResponse } from '@/types/IGetRatesResponse';
 
 export const YH_API_ROUTES = {
   getRates: 'v3/rates/extended',
@@ -45,10 +45,43 @@ export class YouHodlerApiClient {
   }
 
   public async getRates() {
-    const response = await this.createRequest('getRates', 'GET');
+    let response = null;
 
-    const json = (await response.json()) as IGetRatesResponse;
+    try {
+      response = await this.createRequest('getRates', 'GET');
+    } catch (e: unknown) {
+      console.error(e);
+      return {
+        isError: true,
+        error: 'Unable make request to the server',
+        errorDescription: '',
+      };
+    }
 
-    return json;
+    let json = null;
+
+    try {
+      json = (await response.json()) as IGetRatesResponse;
+    } catch (e) {
+      console.error(e);
+      return {
+        isError: true,
+        error: 'Unable to read server response',
+        errorDescription: 'Incorrect response format',
+      };
+    }
+
+    const parsedData = GetRatesResponseSchema.safeParse(json);
+
+    if ('success' in parsedData && !parsedData.success) {
+      console.error(parsedData);
+      return {
+        isError: true,
+        error: 'Unable to validate server response',
+        errorDescription: 'Data schema validation failed, data is not valid',
+      };
+    }
+
+    return { data: parsedData.data };
   }
 }

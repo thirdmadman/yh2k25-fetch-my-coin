@@ -2,7 +2,7 @@ import { YouHodlerApiClient } from '@/services/YouHodlerApiClient';
 import { useCallback, useEffect, useMemo } from 'react';
 import { CoinsList } from '@/features/coins-list/';
 import { remapDataRelativeTo } from '@/shared/utils';
-import { Button, Select, SelectItem } from '@heroui/react';
+import { Button, Select, SelectItem, addToast } from '@heroui/react';
 import { useRootStore } from '@/app/useStores';
 import { observer } from 'mobx-react-lite';
 
@@ -15,7 +15,17 @@ export const MainPage = observer(() => {
 
     const rates = await youHodlerApiClient.getRates();
 
-    store.coinRatesStore.setRates(rates);
+    const { isError, error, errorDescription, data } = rates;
+
+    if (isError === true && error) {
+      addToast({
+        title: error,
+        description: errorDescription,
+      });
+      return;
+    }
+
+    store.coinRatesStore.setRates(data ?? null);
   }, []);
 
   useEffect(() => {

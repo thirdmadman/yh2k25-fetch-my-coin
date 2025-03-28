@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { useCallback, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { CoinRatesCard } from './CoinRatesCard';
+import { addToast } from '@heroui/react';
 
 export const CoinRatesPage = observer(() => {
   const { ticker } = useParams();
@@ -16,7 +17,17 @@ export const CoinRatesPage = observer(() => {
 
     const rates = await youHodlerApiClient.getRates();
 
-    store.coinRatesStore.setRates(rates);
+    const { isError, error, errorDescription, data } = rates;
+
+    if (isError === true && error) {
+      addToast({
+        title: error,
+        description: errorDescription,
+      });
+      return;
+    }
+
+    store.coinRatesStore.setRates(data ?? null);
   }, []);
 
   useEffect(() => {
