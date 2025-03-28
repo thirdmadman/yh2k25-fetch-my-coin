@@ -3,9 +3,9 @@ export function AboutPage() {
     <>
       <section className="max-w-4xl mx-auto flex flex-col items-center justify-center gap-30 text-center pt-12">
         <header>
-          <h1 className="text-4xl font-bold leading-tight mb-12">Welcome to Fetch My Coin</h1>
+          <h1 className="text-4xl font-bold leading-tight mb-12">Welcome to Fetch my coin</h1>
           <p className="text-lg">
-            Fetch My Coin is a user-friendly cryptocurrency app that helps you stay up-to-date with the latest prices
+            Fetch my coin is a user-friendly cryptocurrency app that helps you stay up-to-date with the latest prices
             and trends in the crypto world.
           </p>
         </header>
@@ -14,7 +14,7 @@ export function AboutPage() {
           <div className="flex flex-col items-center py-20">
             <h2 className="text-3xl font-bold leading-tight mb-12">Our Mission</h2>
             <p className="text-lg">
-              At Fetch My Coin, we are dedicated to providing a seamless experience for cryptocurrency enthusiasts like
+              At Fetch my coin, we are dedicated to providing a seamless experience for cryptocurrency enthusiasts like
               yourself. We believe that cryptocurrency is a powerful tool for individuals and businesses alike, and we
               strive to make it easy for everyone to access the latest information and stay up-to-date with the market.
             </p>
