@@ -27,17 +27,19 @@ export interface IServerError {
   _error: string;
 }
 
+export interface IMarketStatsBySymbol {
+  priceRange: Array<PriceRangeData>;
+  historicalPrice: Array<HistoricalPriceData>;
+  id: string;
+  createdAt: string;
+  marketStats: MarketStatsData;
+  baseTicker: string;
+  quoteTicker: string;
+}
+
 export interface IGetMarketStatsBySymbolResponse {
   result: 'Ok';
-  data: {
-    priceRange: Array<PriceRangeData>;
-    historicalPrice: Array<HistoricalPriceData>;
-    id: string;
-    createdAt: string;
-    marketStats: MarketStatsData;
-    baseTicker: string;
-    quoteTicker: string;
-  };
+  data: IMarketStatsBySymbol;
 }
 
 const MarketStatsDataSchema = z.object({
