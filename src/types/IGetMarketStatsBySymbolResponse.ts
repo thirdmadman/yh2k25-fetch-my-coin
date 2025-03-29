@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-interface MarketStatsData {
+export interface IMarketStatsData {
   slug: string;
   symbol: string;
   cmcRank: number;
@@ -12,27 +12,27 @@ interface MarketStatsData {
   marketCapDominance: number;
 }
 
-interface HistoricalPriceData {
+export interface IHistoricalPriceData {
   period: string;
   price: number;
 }
 
-interface PriceRangeData {
+export interface IPriceRangeData {
   period: string;
   low: number;
   high: number;
 }
 
-export interface IServerError {
+export interface IIServerError {
   _error: string;
 }
 
 export interface IMarketStatsBySymbol {
-  priceRange: Array<PriceRangeData>;
-  historicalPrice: Array<HistoricalPriceData>;
+  priceRange: Array<IPriceRangeData>;
+  historicalPrice: Array<IHistoricalPriceData>;
   id: string;
   createdAt: string;
-  marketStats: MarketStatsData;
+  marketStats: IMarketStatsData;
   baseTicker: string;
   quoteTicker: string;
 }

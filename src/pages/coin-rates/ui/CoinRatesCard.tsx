@@ -1,36 +1,9 @@
-import { getDiff24hPercentage } from '@/shared/utils';
+import { getCoinRatesRelativeTo, getDiff24hPercentage } from '@/shared/utils';
 import { getTickerIcon } from '@/shared/utils/getTickerIcon';
 import { getTickerName } from '@/shared/utils/getTickerName';
 import { getTickerType } from '@/shared/utils/getTickerType';
 import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { Card, CardBody, CardHeader, Chip, Divider, Image } from '@heroui/react';
-
-const getCoinRatesRelativeTo = (rates: IGetRatesResponse | null, coin: string, coinRelativeTo = 'usd') => {
-  const defaultRate = {
-    rate: 0,
-    ask: 0,
-    bid: 0,
-    diff24h: 0,
-  };
-
-  if (!rates) {
-    return defaultRate;
-  }
-
-  const coinRates = rates[coin];
-
-  if (!coinRates) {
-    return defaultRate;
-  }
-
-  const coinRate = coinRates[coinRelativeTo];
-
-  if (!coinRate) {
-    return defaultRate;
-  }
-
-  return coinRate;
-};
 
 interface ICoinRatesCardProps {
   ticker?: string;

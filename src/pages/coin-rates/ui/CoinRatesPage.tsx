@@ -5,8 +5,17 @@ import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { CoinRatesCard } from './CoinRatesCard';
 import { addToast } from '@heroui/react';
-import { MarketStats } from './MarketStats';
+import { MarketStatsCard } from './MarketStatsCard';
 import { IMarketStatsBySymbol } from '@/types/IGetMarketStatsBySymbolResponse';
+import { IGetRatesResponse } from '@/types/IGetRatesResponse';
+import { getCoinRatesRelativeTo } from '@/shared/utils';
+
+const getRatesForCoin = (rates: IGetRatesResponse | null, ticker: string | null) => {
+  if (!rates || !ticker) {
+    return null;
+  }
+  return getCoinRatesRelativeTo(rates, ticker);
+};
 
 export const CoinRatesPage = observer(() => {
   const { ticker } = useParams();
@@ -71,8 +80,15 @@ export const CoinRatesPage = observer(() => {
   return (
     <>
       <h1 className="text-4xl mb-5">{ticker?.toUpperCase()} rates</h1>
-      <CoinRatesCard ticker={ticker} rates={rates} />
-      {marketStatsData && <MarketStats marketStatsData={marketStatsData} />}
+      <div className="flex flex-col gap-4">
+        <CoinRatesCard ticker={ticker} rates={rates} />
+        {marketStatsData && (
+          <MarketStatsCard
+            marketStatsData={marketStatsData}
+            currentPriceData={getRatesForCoin(rates, ticker ?? null) ?? null}
+          />
+        )}
+      </div>
     </>
   );
 });
