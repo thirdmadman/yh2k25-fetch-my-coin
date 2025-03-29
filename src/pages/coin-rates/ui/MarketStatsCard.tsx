@@ -21,7 +21,7 @@ export function MarketStatsCard({ currentPriceData, marketStatsData }: IMarketSt
       <CardBody className="flex flex-col gap-2">
         <div className="flex flex-col gap-4 py-4">
           <h4 className="text-lg">Market Overview</h4>
-          <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+          <div className="gap-2 grid grid-cols-2 md:grid-cols-4">
             <Card className="border border-neutral-200" shadow="none">
               <CardBody>
                 <h5>Market Cap:</h5>
@@ -51,7 +51,7 @@ export function MarketStatsCard({ currentPriceData, marketStatsData }: IMarketSt
         <Divider />
         <div className="flex flex-col gap-4 py-4">
           <h4 className="text-lg">Historical Price</h4>
-          <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+          <div className="gap-2 grid grid-cols-2 md:grid-cols-4">
             {historicalPrice.map((priceData, index) =>
               priceData.price !== 0 ? (
                 <HistoricalPriceCard key={index} priceData={priceData} currentPriceData={currentPriceData} />

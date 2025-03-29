@@ -18,10 +18,7 @@ export function HistoricalPriceCard({ priceData, currentPriceData }: IHistorical
   );
 
   return (
-    <Card
-      className={`border border-neutral-200 ${priceDifferencePercentage > 0 ? 'bg-success-50' : 'bg-danger-50'}`}
-      shadow="none"
-    >
+    <Card className={priceDifferencePercentage > 0 ? 'bg-success-100' : 'bg-danger-100'} shadow="none">
       <CardBody>
         <div className="flex gap-2">
           <p className="text-default-500">Time ago</p>
