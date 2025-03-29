@@ -6,6 +6,7 @@ export {
   getPreviousPrice,
   getDiff24hPercentage,
   formatRateNumber,
+  formatDiffPercentage,
   getDiff24hPercentageFormatted,
 } from './rateCalculationUtils';
 export { getCoinRatesRelativeTo } from './getCoinRatesRelativeTo';

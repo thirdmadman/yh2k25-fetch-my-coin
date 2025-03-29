@@ -18,7 +18,11 @@ export const formatRateNumber = (number: number) => {
     : 0;
 };
 
+export const formatDiffPercentage = (diffPercentage: number) => {
+  return diffPercentage !== 0 ? diffPercentage.toFixed(2) : 0;
+};
+
 export const getDiff24hPercentageFormatted = (rate: number, diff24h: number) => {
   const diff = getDiff24hPercentage(rate, diff24h);
-  return diff !== 0 ? diff.toFixed(2) : 0;
+  return formatDiffPercentage(diff);
 };

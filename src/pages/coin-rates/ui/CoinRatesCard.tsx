@@ -19,7 +19,7 @@ export function CoinRatesCard({ ticker, rates }: ICoinRatesCardProps) {
   return (
     <Card className="w-full">
       <CardHeader className="flex gap-3">
-        <Image alt="heroui logo" height={40} radius="sm" src={iconData} width={40} />
+        <Image alt="heroui logo" height={60} radius="sm" src={iconData} width={60} />
         <div className="flex flex-col">
           <p className="text-md">{ticker?.toUpperCase()}</p>
           <p className="text-small text-default-500">{tickerName}</p>
@@ -43,11 +43,13 @@ export function CoinRatesCard({ ticker, rates }: ICoinRatesCardProps) {
           </p>
         </div>
         <div className="flex gap-4">
-          Types: <div className="flex gap-2">{tickerType?.tags?.map((el) => <Chip key={el}>{el}</Chip>)}</div>
+          Types: <div className="flex gap-2 flex-wrap">{tickerType?.tags?.map((el) => <Chip key={el}>{el}</Chip>)}</div>
         </div>
         <div className="flex gap-4">
           Versions:{' '}
-          <div className="flex gap-2">{tickerType?.versions?.map((ver) => <Chip key={ver.name}>{ver.name}</Chip>)}</div>
+          <div className="flex gap-2 flex-wrap">
+            {tickerType?.versions?.map((ver) => <Chip key={ver.name}>{ver.name}</Chip>)}
+          </div>
         </div>
       </CardBody>
     </Card>

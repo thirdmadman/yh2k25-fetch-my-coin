@@ -1,3 +1,4 @@
+import { formatDiffPercentage, formatRateNumber } from '@/shared/utils';
 import { IHistoricalPriceData } from '@/types/IGetMarketStatsBySymbolResponse';
 import { ICoinRateObject } from '@/types/IGetRatesResponse';
 import { Card, CardBody } from '@heroui/react';
@@ -26,7 +27,7 @@ export function HistoricalPriceCard({ priceData, currentPriceData }: IHistorical
         </div>
         <div className="flex gap-2">
           <p className="text-default-500">Price</p>
-          {priceData.price} ({priceDifferencePercentage.toFixed(2)} %)
+          {formatRateNumber(priceData.price)} ({formatDiffPercentage(priceDifferencePercentage)} %)
         </div>
       </CardBody>
     </Card>

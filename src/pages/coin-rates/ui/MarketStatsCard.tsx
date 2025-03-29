@@ -2,6 +2,7 @@ import { IMarketStatsBySymbol } from '@/types/IGetMarketStatsBySymbolResponse';
 import { ICoinRateObject } from '@/types/IGetRatesResponse';
 import { Card, CardBody, CardHeader, Divider } from '@heroui/react';
 import { HistoricalPriceCard } from './HistoricalPriceCard';
+import { formatRateNumber } from '@/shared/utils';
 
 interface IMarketStatsCardProps {
   marketStatsData: IMarketStatsBySymbol;
@@ -75,11 +76,11 @@ export function MarketStatsCard({ currentPriceData, marketStatsData }: IMarketSt
                     </div>
                     <div className="flex gap-2">
                       <p className="text-default-500">low: </p>
-                      {priceRangeData.low}
+                      {formatRateNumber(priceRangeData.low)}
                     </div>
                     <div className="flex gap-2">
                       <p className="text-default-500">high: </p>
-                      {priceRangeData.high}
+                      {formatRateNumber(priceRangeData.high)}
                     </div>
                   </CardBody>
                 </Card>
