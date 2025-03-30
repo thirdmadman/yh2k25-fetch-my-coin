@@ -9,6 +9,8 @@ import { MarketStatsCard } from './MarketStatsCard';
 import { IMarketStatsBySymbol } from '@/types/IGetMarketStatsBySymbolResponse';
 import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { getCoinRatesRelativeTo } from '@/shared/utils';
+import { RateChart } from './RateChart';
+import { TGetChartResponse } from '@/types/TGetChartResponse';
 
 const getRatesForCoin = (rates: IGetRatesResponse | null, ticker: string | null) => {
   if (!rates || !ticker) {
@@ -20,6 +22,7 @@ const getRatesForCoin = (rates: IGetRatesResponse | null, ticker: string | null)
 export const CoinRatesPage = observer(() => {
   const { ticker } = useParams();
   const [marketStatsData, setMarketStatsData] = useState<IMarketStatsBySymbol | null>(null);
+  const [ratesChartData, setRatesChartData] = useState<TGetChartResponse | null>(null);
 
   const store = useRootStore();
   const { rates } = store.coinRatesStore;
@@ -46,6 +49,7 @@ export const CoinRatesPage = observer(() => {
     if (!ticker) {
       return;
     }
+
     const youHodlerApiClient = new YouHodlerApiClient();
 
     const marketStats = await youHodlerApiClient.getMarketStatsBySymbol(ticker, 'usdt');
@@ -65,6 +69,42 @@ export const CoinRatesPage = observer(() => {
     console.log(data);
   }, [ticker, setMarketStatsData]);
 
+  const fetchRatesChartData = useCallback(async () => {
+    if (!ticker) {
+      return;
+    }
+
+    const youHodlerApiClient = new YouHodlerApiClient();
+
+    const yesterday = new Date(new Date().getTime() - 1 * 60 * 60 * 1000);
+    const yesterdayTimestamp = yesterday.toISOString().slice(0, 19);
+
+    const chartData = await youHodlerApiClient.getChart({
+      type: 'line',
+      product: 'hodl',
+      fromTicker: ticker,
+      toTicker: 'usd',
+      points: 120,
+      fromDate: yesterdayTimestamp,
+      toDate: new Date().toISOString(),
+      mode: 'mid',
+    });
+
+    console.log(chartData);
+
+    const { isError, error, errorDescription, data } = chartData;
+
+    if (isError === true && error) {
+      addToast({
+        title: error,
+        description: errorDescription,
+      });
+      return;
+    }
+
+    setRatesChartData(data ?? null);
+  }, []);
+
   useEffect(() => {
     if (!store.coinRatesStore.rates) {
       fetchData().catch((e: unknown) => {
@@ -75,6 +115,10 @@ export const CoinRatesPage = observer(() => {
     fetchMarketStats().catch((e: unknown) => {
       console.error(e);
     });
+
+    fetchRatesChartData().catch((e: unknown) => {
+      console.error(e);
+    });
   }, [ticker, fetchMarketStats]);
 
   return (
@@ -82,6 +126,7 @@ export const CoinRatesPage = observer(() => {
       <h1 className="text-4xl mb-5">{ticker?.toUpperCase()} rates</h1>
       <div className="flex flex-col gap-4">
         <CoinRatesCard ticker={ticker} rates={rates} />
+        {ratesChartData && <RateChart chartData={ratesChartData} />}
         {marketStatsData && (
           <MarketStatsCard
             marketStatsData={marketStatsData}

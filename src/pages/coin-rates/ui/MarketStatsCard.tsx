@@ -9,6 +9,11 @@ interface IMarketStatsCardProps {
   currentPriceData: ICoinRateObject | null;
 }
 
+const convertNumberToShortFrom = (number: number) => {
+  const formatter = Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 3 });
+  return number ? formatter.format(number) : 0;
+};
+
 export function MarketStatsCard({ currentPriceData, marketStatsData }: IMarketStatsCardProps) {
   const { priceRange, historicalPrice, marketStats } = marketStatsData;
 
@@ -26,19 +31,19 @@ export function MarketStatsCard({ currentPriceData, marketStatsData }: IMarketSt
             <Card className="border border-neutral-200" shadow="none">
               <CardBody>
                 <h5>Market Cap:</h5>
-                <p>{marketStats.marketCap}</p>
+                <p>{convertNumberToShortFrom(marketStats.marketCap)}</p>
               </CardBody>
             </Card>
             <Card className="border border-neutral-200" shadow="none">
               <CardBody>
                 <h5>24h Volume:</h5>
-                <p>{marketStats.volume24h}</p>
+                <p>{convertNumberToShortFrom(marketStats.volume24h)}</p>
               </CardBody>
             </Card>
             <Card className="border border-neutral-200" shadow="none">
               <CardBody>
                 <h5>Total Supply:</h5>
-                <p>{marketStats.totalSupply}</p>
+                <p>{convertNumberToShortFrom(marketStats.totalSupply)}</p>
               </CardBody>
             </Card>
             <Card className="border border-neutral-200" shadow="none">
