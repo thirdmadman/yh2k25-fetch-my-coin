@@ -3,7 +3,7 @@ import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, TooltipPr
 import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
 import colors from 'tailwindcss/colors';
 
-interface IRateChartProps {
+interface IRatesChartProps {
   chartData: Array<{ date: string; rate: number }>;
 }
 
@@ -19,7 +19,7 @@ const CustomTooltip = ({ active, payload, label }: TooltipProps<ValueType, NameT
   return null;
 };
 
-const RateChart = ({ chartData }: IRateChartProps) => {
+export function RatesChart({ chartData }: IRatesChartProps) {
   const isDescending = chartData[0].rate - chartData[chartData.length - 1].rate > 0;
 
   return (
@@ -35,7 +35,6 @@ const RateChart = ({ chartData }: IRateChartProps) => {
             data={chartData}
             margin={{
               top: 5,
-
               bottom: 5,
             }}
           >
@@ -58,6 +57,4 @@ const RateChart = ({ chartData }: IRateChartProps) => {
       </CardBody>
     </Card>
   );
-};
-
-export { RateChart };
+}

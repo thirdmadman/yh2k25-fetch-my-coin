@@ -9,7 +9,7 @@ import { MarketStatsCard } from './MarketStatsCard';
 import { IMarketStatsBySymbol } from '@/types/IGetMarketStatsBySymbolResponse';
 import { IGetRatesResponse } from '@/types/IGetRatesResponse';
 import { getCoinRatesRelativeTo } from '@/shared/utils';
-import { RateChart } from './RateChart';
+import { RatesChart } from './RatesChart';
 import { TGetChartResponse } from '@/types/TGetChartResponse';
 
 const getRatesForCoin = (rates: IGetRatesResponse | null, ticker: string | null) => {
@@ -126,7 +126,7 @@ export const CoinRatesPage = observer(() => {
       <h1 className="text-4xl mb-5">{ticker?.toUpperCase()} rates</h1>
       <div className="flex flex-col gap-4">
         <CoinRatesCard ticker={ticker} rates={rates} />
-        {ratesChartData && <RateChart chartData={ratesChartData} />}
+        {ratesChartData && <RatesChart chartData={ratesChartData} />}
         {marketStatsData && (
           <MarketStatsCard
             marketStatsData={marketStatsData}
