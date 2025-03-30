@@ -18,13 +18,13 @@
 
 ## Features
 
-- Fetches live cryptocurrency data from [YouHodler API](https://app.youhodler.com/api/v3/rates/extended)
-- Displays a list of cryptocurrencies with their names, tickers, and rates
-- Detailed coin pages showing bid/ask prices, 24-hour price movement, and more
-- Responsive design for mobile and desktop
-- Routing for seamless navigation between the homepage and coin detail pages
+- Fetches various data of cryptocurrency from [YouHodler API](https://app.youhodler.com/api/v3/rates/extended)
+- Displays a list of cryptocurrencies with their icons, names, tickers, and different rates
+- Allows to select a specific coin as base to rate calculations
+- Detailed coin pages showing coin rates information, rates charts for past 1H, and detailed stats of the coin
+- Responsive design for mobile and desktop including dark and light mode
+- Routing for seamless navigation between the pages and to share specific coin rates page
 - API error handling and data validation with Zod
-- Optimized performance with React Suspense and Vite
 
 ## Installation
 
