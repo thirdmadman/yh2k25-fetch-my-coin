@@ -175,6 +175,7 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
           </div>
         </div>
         <div className="flex justify-between items-center">
+          <span className="text-default-400 text-small">Click on icon to see more details</span>
           <span className="text-default-400 text-small">Total {rates?.length ?? '0'} rows</span>
         </div>
       </div>
@@ -184,7 +185,7 @@ export const CoinsList = observer(({ rates }: ICoinsListProps) => {
   return (
     <Table
       isHeaderSticky
-      aria-label="Example table with custom cells and sorting"
+      aria-label="Crypto rates table"
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"

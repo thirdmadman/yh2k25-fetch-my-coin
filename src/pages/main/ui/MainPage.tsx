@@ -42,34 +42,34 @@ export const MainPage = observer(() => {
 
   return (
     <>
-      <div className="flex flex-col gap-6 justify-between mb-8">
-        <div className="">
-          <p>All calculations made with assumption that you are using some coin as base. By default it is USD.</p>
-          <p>You can change it in the dropdown below.</p>
-        </div>
-        <div className="flex justify-between gap-3 items-space mb-4">
-          <Select
-            className="max-w-xs"
-            label="Coin as base for rates"
-            placeholder="Select a coin"
-            defaultSelectedKeys={[coinRelativeTo]}
-            onChange={(res) => {
-              store.coinRatesStore.setCoinRelativeTo(res.target.value);
-            }}
-          >
-            {data?.map((item) => <SelectItem key={item.coin}>{item.coin}</SelectItem>) ?? null}
-          </Select>
-          <Button
-            color="primary"
-            className="h-auto"
-            onPress={() => {
-              fetchData().catch((e: unknown) => {
-                console.error(e);
-              });
-            }}
-          >
-            ReFetch
-          </Button>
+      <div className="flex flex-col gap-12 justify-between mb-8">
+        <h1 className="text-4xl mb-5 font-semibold">Explore crypto</h1>
+        <div className="flex flex-col justify-between gap-3 items-space">
+          <div className="flex gap-2 justify-between">
+            <Select
+              className="max-w-xs"
+              label="Base coin"
+              placeholder="Select a coin"
+              defaultSelectedKeys={[coinRelativeTo]}
+              onChange={(res) => {
+                store.coinRatesStore.setCoinRelativeTo(res.target.value);
+              }}
+            >
+              {data?.map((item) => <SelectItem key={item.coin}>{item.coin}</SelectItem>) ?? null}
+            </Select>
+            <Button
+              color="primary"
+              className="h-auto"
+              onPress={() => {
+                fetchData().catch((e: unknown) => {
+                  console.error(e);
+                });
+              }}
+            >
+              ReFetch
+            </Button>
+          </div>
+          <p className="text-small text-default-400">Coin as base for rates calculations. By default: USD</p>
         </div>
       </div>
       <CoinsList rates={data} />
