@@ -25,7 +25,7 @@ export function RatesChart({ chartData }: IRatesChartProps) {
   return (
     <Card>
       <CardHeader>
-        <h2 className="text-lg">Rates Chart</h2>
+        <h2 className="text-lg">Rates Chart for 1H</h2>
       </CardHeader>
       <CardBody>
         <ResponsiveContainer minHeight="400px" width="100%" height="100%">
