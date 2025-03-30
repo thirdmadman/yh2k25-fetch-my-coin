@@ -10,3 +10,4 @@ export {
   getDiff24hPercentageFormatted,
 } from './rateCalculationUtils';
 export { getCoinRatesRelativeTo } from './getCoinRatesRelativeTo';
+export { convertFilterObjectToSearchParams } from './convertFilterObjectToSearchParams';
