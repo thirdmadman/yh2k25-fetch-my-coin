@@ -1,9 +1,20 @@
+import { APP_NAME } from '@/constants';
 import { Footer } from '@/widgets/footer';
 import { Navbar } from '@/widgets/navbar';
 import { HeroUIProvider, ToastProvider } from '@heroui/react';
-import { Outlet } from 'react-router';
+import { useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router';
+import { getBreadcrumbsArrayByLocation } from './routes';
 
 export function PageLayout() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const breadcrumbsArray = getBreadcrumbsArrayByLocation(location.pathname);
+    const pageName: string | undefined = breadcrumbsArray[0]?.name;
+    document.title = `${APP_NAME}${pageName ? ` - ${pageName}` : ``}`;
+  }, [location]);
+
   return (
     <HeroUIProvider className="h-full">
       <ToastProvider />

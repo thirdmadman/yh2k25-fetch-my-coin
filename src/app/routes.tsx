@@ -61,7 +61,7 @@ export const getBreadcrumbsArrayByLocation = (location: string) => {
       let currentRoute: TExtendedRouteObject | null = null;
 
       if (i === 0) {
-        currentRoute = ROUTES_TREE.find((route) => route.path === locationSegment) ?? null;
+        currentRoute = ROUTES_TREE.find((route) => route.path?.split(':')[0] === locationSegment) ?? null;
       } else {
         const parentRouteObject = acc.crumbs[i - 1];
         const routeObject = parentRouteObject.children as Array<TExtendedRouteObject> | undefined;
