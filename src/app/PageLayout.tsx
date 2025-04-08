@@ -12,7 +12,7 @@ export function PageLayout() {
   useEffect(() => {
     const breadcrumbsArray = getBreadcrumbsArrayByLocation(location.pathname);
     const pageName: string | undefined = breadcrumbsArray[0]?.name;
-    document.title = `${APP_NAME}${pageName ? ` - ${pageName}` : ``}`;
+    document.title = `${pageName ? `${pageName} - ` : ``}${APP_NAME}`;
   }, [location]);
 
   return (
